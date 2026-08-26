@@ -1,0 +1,25 @@
+{
+  "MAE": 3608940.798752028,
+  "MSE": 21250953478188.25,
+  "RMSE": 4609875.646716325,
+  "R2": 0.8607024707201841,
+  "test_rows": 241,
+  "train_rows": 960,
+  "numeric_features": [
+    "area",
+    "bedrooms",
+    "bathrooms",
+    "stories",
+    "parking"
+  ],
+  "categorical_features": [
+    "mainroad",
+    "guestroom",
+    "basement",
+    "hotwaterheating",
+    "airconditioning",
+    "prefarea",
+    "furnishingstatus",
+    "location"
+  ]
+}
