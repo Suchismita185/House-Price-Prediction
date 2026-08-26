@@ -27,6 +27,80 @@ vs. categorical columns dynamically, so nothing else needs to change unless
 the price column is named something other than `price` (update the `TARGET`
 constant at the top of `train.py`).
 
+Downloading (repo & dataset)
+
+If you want to run this project with a real Kaggle dataset or simply obtain
+this repository locally, follow the steps below.
+
+1) Downloading the repository
+
+- Clone via HTTPS (recommended):
+
+```bash
+git clone https://github.com/Suchismita185/House-Price-Prediction.git
+cd House-Price-Prediction
+```
+
+- Clone via SSH (if you have an SSH key configured):
+
+```bash
+git clone git@github.com:Suchismita185/House-Price-Prediction.git
+cd House-Price-Prediction
+```
+
+- Quick download (ZIP) from the web UI: visit
+`https://github.com/Suchismita185/House-Price-Prediction` and click **Code →
+Download ZIP**; then unzip and open the project folder.
+
+2) Downloading a dataset from Kaggle (optional)
+
+If you prefer to use a Kaggle dataset instead of the provided synthetic CSV,
+there are two common workflows below. After downloading, make sure the CSV is
+saved as `data/house_prices.csv` (file name must match the default `TARGET`
+unless you change `TARGET` in `train.py`).
+
+- Using the Kaggle CLI (recommended for automation):
+
+  1. Install the Kaggle CLI: `pip install kaggle`.
+  2. Create an API token on Kaggle (Account → API → Create New API Token).
+     This downloads a `kaggle.json` file. Place it at `~/.kaggle/kaggle.json`
+     and set permissions: `chmod 600 ~/.kaggle/kaggle.json`.
+  3. Download a dataset. Examples:
+
+     - Kaggle competition (House Prices - Advanced Regression Techniques):
+
+       ```bash
+       kaggle competitions download -c house-prices-advanced-regression-techniques \
+         -f train.csv -p data/ --unzip
+       mv data/train.csv data/house_prices.csv
+       ```
+
+     - Generic dataset by slug (replace `owner/dataset-name`):
+
+       ```bash
+       kaggle datasets download -d owner/dataset-name -p data/ --unzip
+       # then rename the relevant CSV to data/house_prices.csv
+       ```
+
+  4. Verify the file exists: `ls -l data/house_prices.csv`.
+
+- Manual download (browser):
+
+  1. On Kaggle, open the dataset page you want and download the CSV files.
+  2. Place the chosen CSV into the project's `data/` directory and rename it
+     to `house_prices.csv` if needed.
+
+Notes and caveats
+
+- Column names and target: The code expects the target column to be named
+  `price` by default. If your dataset uses a different target column name,
+  change the `TARGET` constant at the top of `train.py`.
+- Secrets: Do NOT commit `kaggle.json` or other credentials into the repo.
+  Keep API tokens out of version control.
+- If your CSV has a different schema, `train.py` detects numeric vs
+  categorical columns dynamically; however, inspect the columns first and
+  adjust any column name mismatches as needed.
+
 ## Project structure
 
 ```
